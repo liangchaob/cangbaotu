@@ -69,13 +69,3 @@ def get_greendata(data_obj):
     # 获得关键值
     result = get_keyresult(result)
     return result
-
-
-
-
-
-
-
-
-
-

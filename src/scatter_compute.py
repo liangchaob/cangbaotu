@@ -1,8 +1,7 @@
-# encoding: utf-8
-'''
-* liangchaob@163.com 
-* 2020.5
-'''
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+__author__ = "Liang Chao"
+
 import operator
 import matplotlib.pyplot as plt
 import numpy as np

@@ -1,2 +1,4 @@
 *.pyc
 *.json
+!/data/history/current.json
+!/data/result/current.json

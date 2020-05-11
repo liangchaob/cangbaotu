@@ -7,9 +7,9 @@ import operator
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 数据130截断
+# 数据130截断, 预期正收益, AA 以上
 def is_odd(item):
-    return float(item["price"]) < 130 and float(item["convert_value"]) < 130
+    return float(item["price"]) < 130 and float(item["convert_value"]) < 130 and float(item["ytm_rt"]) > 0 and 'AA' in item["rating_cd"] and '-' not in item["rating_cd"]
 
 # 获得清洗过的数据
 def get_cleandata(data):
@@ -37,7 +37,7 @@ def get_line(data):
 
 # 获得关键 item
 def get_keyresult(data):
-    key_names = {"bond_id", "bond_nm", "convert_value", "price"}
+    key_names = {"bond_id", "bond_nm", "convert_value", "price", "ytm_rt"}
     result = []
     # 提取关键kv
     for item in data:
@@ -58,11 +58,11 @@ def get_greendata(data_obj):
     # 绿色区域
     def green_area(item):
         # 中间区域(80-100)
-        in_middle_area = item["convert_value"] > 80 and item["convert_value"] < 100
+        # in_middle_area = item["convert_value"] > 80 and item["convert_value"] < 100
         # 线下区域
         under_line = line(item["convert_value"]) > item["price"]
         # 同时满足
-        return under_line and in_middle_area
+        return under_line
 
     # 筛选数据
     result = list(filter(green_area, data_cleaned))

@@ -9,7 +9,7 @@ import numpy as np
 
 # 数据130截断, 预期正收益, AA 以上
 def is_odd(item):
-    return float(item["price"]) < 130 and float(item["convert_value"]) < 130 and float(item["ytm_rt"]) > 0 and 'AA' in item["rating_cd"] and '-' not in item["rating_cd"]
+    return float(item["price"]) < 130 and float(item["convert_value"]) < 130 and float(item["ytm_rt"]) > 0 and 'AA' in item["rating_cd"]
 
 # 获得清洗过的数据
 def get_cleandata(data):

@@ -1,4 +1,5 @@
 *.pyc
 *.json
+log.txt
 !/data/history/current.json
 !/data/result/current.json

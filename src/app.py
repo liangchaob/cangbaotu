@@ -17,12 +17,13 @@ CSINDEX_URL = 'http://www.csindex.com.cn/zh-CN/indices/index-detail/000832'
 HISTORY_PATH = "../data/history/"
 RESULT_PATH = "../data/result/"
 DEFAULT_NAME = "current.json"
+LOG_PATH = "../log.txt"
 
 # 设置日志
-def set_log():
+def set_log(log_file):
     logger = logging.getLogger(__name__)
     logger.setLevel(level = logging.INFO)
-    handler = logging.FileHandler("../log.txt")
+    handler = logging.FileHandler(log_file)
     handler.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
@@ -45,7 +46,7 @@ def save_to_json(csindex, data, file):
 
 def main():
     # 设置日志
-    logger = set_log()
+    logger = set_log(LOG_PATH)
     try:
         # 把当前的 current.json 文件改名为 日期.json 格式
         restore_data(HISTORY_PATH, DEFAULT_NAME)
